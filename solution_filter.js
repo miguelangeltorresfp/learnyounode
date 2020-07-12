@@ -6,10 +6,8 @@ module.exports = function (dir, ext, callback) {
   fs.readdir(dir, (err, data) => {
     if (err) return callback(err);
 
-    const result = data.filter((file) => {
-      return path.extname(file) === '.' + ext;
-    });
+    const result = data.filter((file) => path.extname(file) === '.' + ext);
 
-    return callback(null, result);
+    callback(null, result);
   });
 };
